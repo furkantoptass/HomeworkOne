@@ -1,4 +1,5 @@
 ﻿using HomeworkOne.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -33,5 +34,37 @@ namespace HomeworkOne.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                //Success True > 
+                return View("Login");
+                //return SuccessTrue();
+            }
+            else
+            {
+                //Success False > 
+                return View("Login");
+                //return SuccessFalse();
+            }
+            return View("Login");
+        }
+        public IActionResult SuccessTrue()
+        {
+            return StatusCode(StatusCodes.Status200OK);
+        }
+        public IActionResult SuccessFalse()
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+        
+
     }
 }
