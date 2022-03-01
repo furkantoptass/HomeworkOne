@@ -27,7 +27,7 @@ namespace HomeworkOne.Models
         [StringLength(8, ErrorMessage = "8 Karakterden Büyük Olamaz.")]
         [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$",
         ErrorMessage = "Şifreniz Büyük Harf ve Rakamlar İçermelidir")]
-        [Display(Name = "Password")]
+        [Display(Name = "Şifre")]
         public string Password { get; set; }
     }
 }
