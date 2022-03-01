@@ -45,24 +45,21 @@ namespace HomeworkOne.Controllers
             if (ModelState.IsValid)
             {
                 //Success True > 
-                return View("Login");
-                //return SuccessTrue();
+                return SuccessTrue();
             }
             else
             {
                 //Success False > 
-                return View("Login");
-                //return SuccessFalse();
-            }
-            return View("Login");
+                return SuccessFalse();
+            } 
         }
         public IActionResult SuccessTrue()
         {
-            return StatusCode(StatusCodes.Status200OK);
+            return Ok(new ResponseModel { Success=true, Error="Null", Data="Giriş İşlemi Başarılı"});
         }
         public IActionResult SuccessFalse()
         {
-            return StatusCode(StatusCodes.Status500InternalServerError);
+            return BadRequest(new ResponseModel { Success = false, Error = "Hatalı Giriş", Data = "Null" });
         }
         
 
