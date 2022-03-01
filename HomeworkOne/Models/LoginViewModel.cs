@@ -14,8 +14,6 @@ namespace HomeworkOne.Models
         [Display(Name = "Soyad")]
         public string LastName { get; set; }
 
-
-
         [Required(ErrorMessage = "Email Alanı Zorunlu Alandır")]
         [StringLength(50, ErrorMessage = "50 Karakterden Büyük Olamaz.")]
         [RegularExpression("^[A-Za-z0-9._%+-]*@[A-Za-z0-9.-]*\\.[A-Za-z0-9-]{2,}$",
